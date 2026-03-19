@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit - Twój Wszechświat Nauki</title>
+    <!-- Naprawiony link do ikon -->
+    <link href="https://cdnjs.cloudflare.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1a1b26;
+            --bg-sidebar: #13141c;
+            --accent-indigo: #6366f1;
+            --accent-mint: #10b981;
+            --accent-pink: #f472b6;
+            --text-main: #e5e7eb;
+            --text-dim: #9ca3af;
+            --border: #2e303e;
+            --overlay: rgba(0,0,0,0.85);
+        }
+
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-dark); color: var(--text-main);
+            overflow: hidden;
+        }
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orbit</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+    --bg-dark:#1a1b26;
+    --bg-sidebar:#13141c;
+    --accent-indigo:#6366f1;
+    --accent-mint:#10b981;
+    --text-main:#e5e7eb;
+    --text-dim:#9ca3af;
+    --border:#2e303e;
+}
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    display:flex;
+    height:100vh;
+    font-family:sans-serif;
+    background:var(--bg-dark);
+    color:white;
+}
+
+/* ===== LEFT ICON BAR ===== */
+.sidebar-global{
+    width:70px;
+    background:var(--bg-sidebar);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:20px;
+    border-right:1px solid var(--border);
+}
+
+.sphere-icon{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    background:var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:15px;
+    cursor:pointer;
+    color:var(--text-dim);
+}
+
+.sphere-icon.active{
+    background:var(--accent-indigo);
+    color:white;
+}
+
+/* ===== SUBJECTS ===== */
+.sidebar-channels{
+    width:260px;
+    background:var(--bg-sidebar);
+    border-right:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+}
+
+.header-box{
+    padding:20px;
+    font-weight:bold;
+    border-bottom:1px solid var(--border);
+}
+
+.channel-list{
+    padding:10px;
+}
+
+.channel-item{
+    padding:10px 15px;
+    border-radius:8px;
+    margin-bottom:5px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    color:var(--text-dim);
+}
+
+.channel-item i{
+    margin-right:10px;
+}
+
+.channel-item:hover{
+    background:rgba(99,102,241,0.1);
+}
+
+.channel-item.active{
+    background:var(--accent-indigo);
+    color:white;
+}
+
+/* ===== MAIN ===== */
+.main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+/* ===== TOP ===== */
+.top{
+    height:60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+    border-bottom:1px solid var(--border);
+}
+
+.profile{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:#888;
+    cursor:pointer;
+}
+
+/* ===== POSTS ===== */
+.content{
+    flex:1;
+    padding:20px;
+}
+
+.post{
+    background:var(--bg-sidebar);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+/* ===== BOTTOM BAR ===== */
+.bottom{
+    padding:15px;
+    border-top:1px solid var(--border);
+    display:flex;
+    gap:10px;
+}
+
+.add-btn{
+    background:var(--accent-mint);
+    color:white;
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.input-box{
+    flex:1;
+    background:#111;
+    border:none;
+    border-radius:8px;
+    padding:10px;
+    color:white;
+}
+
+.send-btn{
+    background:var(--accent-indigo);
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LEFT ICONS -->
+<div class="sidebar-global">
+    <div class="sphere-icon active"><i class="fas fa-graduation-cap"></i></div>
+    <div class="sphere-icon"><i class="fas fa-flask"></i></div>
+    <div class="sphere-icon"><i class="fas fa-calculator"></i></div>
+    <div class="sphere-icon"><i class="fas fa-language"></i></div>
+</div>
+
+<!-- SUBJECTS -->
+<div class="sidebar-channels">
+    <div class="header-box">Twoje Orbity</div>
+
+    <div class="channel-list">
+        <div class="channel-item active" onclick="zmien(this,'Informatyka')">
+            <i class="fas fa-code"></i> Informatyka
+        </div>
+
+        <div class="channel-item" onclick="zmien(this,'Chemia Organiczna')">
+            <i class="fas fa-flask"></i> Chemia Organiczna
+        </div>
+
+        <div class="channel-item" onclick="zmien(this,'Matematyka Stosowana')">
+            <i class="fas fa-calculator"></i> Matematyka Stosowana
+        </div>
+<div class="channel-item" onclick="zmien(this,'Język Angielski')">
+            <i class="fas fa-language"></i> Język Angielski
+        </div>
+    </div>
+
+    <div class="header-box">
+        Postęp Kursu
+        <div style="height:8px;background:#333;margin-top:10px;border-radius:5px;">
+            <div style="width:65%;height:100%;background:var(--accent-mint);border-radius:5px;"></div>
+        </div>
+
+        <button class="add-btn" style="margin-top:15px;width:100%;" onclick="dodajZadanie()">
+            <i class="fas fa-plus"></i> Dodaj Zadanie
+        </button>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- TOP -->
+    <div class="top">
+        <div id="title"><b>Informatyka</b> / Kronika wydarzeń</div>
+
+        <div style="display:flex;gap:15px;align-items:center;">
+            <button class="send-btn">Dołącz do lekcji</button>
+            <i class="fas fa-search"></i>
+            <div class="profile" onclick="profil()"></div>
+        </div>
+    </div>
+
+    <!-- POSTS -->
+    <div class="content" id="posts">
+        <div class="post">Post kursu...</div>
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="bottom">
+        <button class="add-btn" onclick="dodajZadanie()">
+            <i class="fas fa-plus"></i>
+        </button>
+
+        <input class="input-box" id="msg" placeholder="Napisz wiadomość...">
+
+        <button class="send-btn" onclick="wyslij()">Wyślij</button>
+    </div>
+
+</div>
+
+<script>
+function zmien(el, nazwa){
+    document.querySelectorAll('.channel-item').forEach(e=>e.classList.remove('active'));
+    el.classList.add('active');
+
+    document.getElementById('title').innerHTML = "<b>"+nazwa+"</b> / Kronika wydarzeń";
+}
+
+function profil(){
+    window.location.href="rejestracja.html";
+}
+
+function dodajZadanie(){
+    alert("Dodano zadanie!");
+}
+
+function wyslij(){
+    let text = document.getElementById("msg").value;
+    if(text==="") return;
+
+    let post = document.createElement("div");
+    post.className="post";
+    post.innerText=text;
+
+    document.getElementById("posts").appendChild(post);
+    document.getElementById("msg").value="";
+}
+</script>
+
+</body>
+</html>

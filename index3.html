@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Orbit - Logowanie</title>
+    <link href="https://cdnjs.cloudflare.com" rel="stylesheet">
+    <style>
+        body { margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; background: #0f172a; font-family: sans-serif; color: white; }
+        .card { background: #13141c; padding: 40px; border-radius: 20px; border: 1px solid #2e303e; text-align: center; width: 320px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #2e303e; background: #1a1b26; color: white; box-sizing: border-box; }
+        .btn { width: 100%; padding: 12px; border: none; border-radius: 10px; background: #6366f1; color: white; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <i class="fas fa-atom" style="font-size: 3rem; color: #6366f1; margin-bottom: 15px;"></i>
+        <h2>Orbit</h2>
+        <input type="text" id="uName" placeholder="Twoje Imię">
+        <input type="password" placeholder="Hasło (dowolne)">
+        <!-- KLUCZOWY MOMENT: window.location.href przenosi do drugiego pliku -->
+        <button class="btn" onclick="saveAndGo()">Zarejestruj się</button>
+    </div>
+
+    <script>
+        function saveAndGo() {
+            const name = document.getElementById('uName').value || "Student";
+            localStorage.setItem('userName', name); // Zapamiętuje imię w przeglądarce
+            window.location.href = "app.html"; // Przechodzi do pliku z kursami
+        }
+    </script>
+</body>
+</html>
